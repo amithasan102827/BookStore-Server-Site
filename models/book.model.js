@@ -19,15 +19,15 @@ const bookSchema = mongoose.Schema({
     },
     publicationDate: {
         type: Date,
-        required: true
+        required: true,
     },
     image: {
         type: String,
-        required: true
+        required: true,
     },
     details: {
         type: String,
-        required: true
+        required: true,
     },
     price: {
         type: Number,
@@ -37,6 +37,12 @@ const bookSchema = mongoose.Schema({
         type: Date,
         default: Date.now,
     },
+    comments: [
+        {
+            comment: String,
+            createdAt: { type: Date, default: Date.now },
+        },
+    ],
 });
 
 module.exports = mongoose.model("Book", bookSchema);
